@@ -91,13 +91,13 @@ If Django is not installed or you need latested version please follow this link:
  ```sh
    pip install django-crispy-forms
    ```
-4. In Terminal cd django_samaritans_purse/Library and runserver on 0:8000 
+4. In Terminal change directories to Book_Review_samaritans_purse/django_samaritans_purse/Library/ and runserver on 0:8000 
  ```sh
-   python manage.py runserver 0:8000
+   cd Book_Review_samaritans_purse/django_samaritans_purse/Library/ && python manage.py runserver 0:8000
    ```
 5. Have Fun With The Book Review Application!
 
-6. When Done ^C in Terminal to end session
+6. When Done ^C (control + C) in Terminal to end session
 
 
 
