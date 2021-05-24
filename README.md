@@ -49,7 +49,8 @@ Users:
 * Login and Logout
 * They are able to search for books by author
 * They are able to write reviews of each book
-* They are able to save favorite books by clicking the star and be stored in database and on favorite book list pages
+* They are able to save favorite books by clicking the star and favorite books will be stored in database 
+* They will be able to find their favorite books on My Favorite Book Page
 * They will be able to see their own reviews and update or delete them
 
 
