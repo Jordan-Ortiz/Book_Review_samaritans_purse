@@ -42,7 +42,7 @@ Welcome to the Book Review, Each Book is pulled from Google's Book API by author
 Non-Users:  
 * They are able to use the search form by author
 * They are able register as a user
-* They are able to see all review from other users. 
+* They are able to see all reviews from other users. 
 * They are NOT able to write a review or favorite a book. 
 
 Users:  
