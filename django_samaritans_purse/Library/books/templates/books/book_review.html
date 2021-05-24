@@ -1,0 +1,16 @@
+{% extends 'books/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+    {% block content%}
+        <form  method="POSt">
+            <div class="col-8 mx-auto shadow p-3" style="background-color: white">
+                {% csrf_token %}
+                <h3> Review Book </h3>
+                {{form|crispy}}
+                <div class=" m-3 d-flex justify-content-end">
+            <button class="btn btn-secondary"> Post Review </button>
+                </div>
+            </div>
+        </form>
+    {% endblock content%}

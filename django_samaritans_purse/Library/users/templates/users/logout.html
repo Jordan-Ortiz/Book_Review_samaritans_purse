@@ -1,0 +1,15 @@
+{% extends "books/base.html" %}
+    {% block content %}
+            <div class="container">
+                <div class="col-sm-12 p-5 bg-light shadow border">
+                    <h3>You have successfully Logged Out. </h3>
+
+                    <br>
+                    <h3>You can log back by clicking the link below </h3>
+                     <a href="{% url 'login' %}">
+                        <h2> Login Here</h2>
+                    </a>
+                </div>
+            </div>
+
+    {% endblock%}

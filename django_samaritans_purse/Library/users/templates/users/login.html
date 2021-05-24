@@ -1,0 +1,133 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Jekyll v4.1.1" />
+    <title>Estimate Key</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.5/examples/floating-labels/"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="{% static 'books/book_logo.png' %}" sizes="180x180" />
+    <link rel="icon" href="{% static 'books/book_logo.png' %}" sizes="32x32" type="image/png" />
+    <link rel="icon" href="{% static 'books/book_logo.png' %}" sizes="16x16" type="image/png" />
+    <link
+      rel="manifest"
+      href="https://getbootstrap.com/docs/4.5/assets/img/favicons/manifest.json"
+    />
+    <link rel="mask-icon" href="{% static 'books/book_logo.png' %}" color="#563d7c" />
+    <link rel="icon" href="{% static 'books/book_logo.png' %}" />
+    <meta
+      name="msapplication-config"
+      content="https://getbootstrap.com/docs/4.5/assets/img/favicons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#563d7c" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template
+	      <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'dashboard/loginPage.css' %}"
+    >-->
+  </head>
+  <body>
+  <div class="container">
+    <div class="p-5 mt-5 mx-auto col-sm-12 col-md-6 border shadow">
+    <form class="form-signin" method="POST">
+        {% csrf_token %}
+      <div class="text-center mb-2">
+        	<h1 class="h3 mb-3 font-weight-normal">
+          Welcome to Book Review
+            </h1>
+		  <img class="mb-4" src="{% static 'books/book_logo.png' %}" alt="" width="50%" />
+
+
+<!--       <img class="mb-4" src="{% static 'audit/profile_icon.jpg' %}" alt="" width="50%" />-->
+      </div>
+
+      <div class="form-group">
+           {{ form|crispy }}
+      </div>
+
+
+
+
+      <button class="btn btn-lg btn-block btn-secondary" type="submit">
+        Sign in
+      </button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; Book Review</p>
+    </form>
+        <div class="border-top pt-3">
+			<small class="text-muted">
+			No Account, No problem Register Here<a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+			</small>
+			</div>
+</div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'books/base.html' %}
+
+    {% block content %}
+        <div class="col-8 mx-auto" style="background-color: white">
+            <h3>
+                {{object.id}} <br>
+                <hr>
+                {{object.book_id}} <br>
+                {{object.title }}<br>
+                {{object.user}}<br>
+                {{object.rating}}<br>
+                {{object.review}}<br>
+                {{object.date_created}}<br>
+            </h3>
+        </div>
+    {% endblock content %}

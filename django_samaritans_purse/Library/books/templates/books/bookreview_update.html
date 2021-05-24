@@ -1,0 +1,16 @@
+{% extends 'books/base.html' %}
+{% load crispy_forms_tags %}
+    {% block content %}
+
+        <form class="form-signin" method="POST">
+            {% csrf_token %}
+            <div class="col-8 mx-auto border p-3" style="background-color: white">
+                {{ form|crispy }}
+
+                               <button class="btn btn-lg btn-block btn-info" type="submit">Post
+      </button>
+
+            </div>
+        </form>
+
+    {% endblock content %}

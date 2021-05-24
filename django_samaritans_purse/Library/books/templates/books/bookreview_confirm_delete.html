@@ -1,0 +1,15 @@
+{% extends 'books/base.html' %}
+{% load crispy_forms_tags %}
+    {% block content %}
+    <div class="col-8 mx-auto p-3" style="background-color: white">
+
+        <form class="form-signin" method="POST">
+            {% csrf_token %}
+           <h3>Are you sure you want to delete your review on "{{ object.title }}"?</h3>
+            <div class="d-flex justify-content-end p-3">
+            <a class="btn btn-secondary mx-2" type="submit"> Cancel</a>
+            <button class="btn btn-danger mx-2" type="submit"> Confirm</button>
+            </div>
+        </form>
+</div>
+    {% endblock content %}

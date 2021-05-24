@@ -1,0 +1,133 @@
+{% extends 'books/base.html' %}
+{% load static %}
+
+    {% block content%}
+
+
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-7 font-italic">Welcome To The Book Club</h1>
+          <p class="lead my-3">Here is a website where you are able to find new books and review ones that you read</p>
+        </div>
+      </div>
+
+<!--      Search For Authors -->
+<div class="col-10 border shadow mx-auto my-4 ">
+  <form method="POST" action="/">
+    {% csrf_token %}
+  <div class="row mx-auto">
+
+    <input class="col-md-8 col-sm-12 mx-1 my-2" name="author" type="text" placeholder="Micheal Crichton, JK Rowling, Stephen King...">
+  <button type="submit" class="col-md-3 col-sm-12 btn btn-secondary mx-1 my-2"> Search By Author</button>
+
+  </div>
+     </form>
+</div>
+
+    {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+<!--    Display Book List -->
+{% if books == 'none' %}
+       <div class="mx-auto col-10 text-center">
+
+         <h3>Search By Author <br> Find A Book <br>  Make A Review </h3>
+
+      </div>
+{% else %}
+      <div class="row mb-2">
+        {% for book in books %}
+
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+
+            <div class="card-body d-flex flex-column align-items-start">
+                {% if request.user.is_authenticated %}
+                    <a class="float-right " href="{% url 'add-favorite' book.id %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFD700" class="bi bi-star" viewBox="0 0 16 16">
+                      <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                    </svg>
+                    </a>
+                {% endif %}
+
+                    <br>
+              <strong class="d-inline-block mb-2 text-primary">Published Date {{book.volumeInfo.publishedDate }}</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">{{book.volumeInfo.title|slice:":100"}}
+                </a>
+              </h3>
+
+              <div class="mb-1 text-muted">{%for author in book.volumeInfo.authors%} {{author}}{% endfor %}</div>
+
+              <p class="card-text mb-auto">{{book.volumeInfo.description|slice:":150" }}</p>
+              <a href="{% url 'detail-review' book.id %}">More Details</a>
+
+            </div>
+
+              {% if book.volumeInfo.imageLinks.smallThumbnail %}
+
+                <img class="shadow m-2" src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="{{book.volumeInfo.title}}" width="128" height="233">
+
+              {% else %}
+                <img class=" m-2" src="{% static 'books/book_logo.png' %}" alt="{{book.volumeInfo.title}}" width="128" height="233">
+              {% endif %}
+
+          </div>
+
+
+
+
+<!--            Review Form -->
+       {% if request.user.is_authenticated %}
+                <form id="bookreview" method="POST" action="{% url 'create-review' %}">
+                    {% csrf_token %}
+              <input hidden name="book_name" value="{{ book.volumeInfo.title }}" >
+              <input hidden name="book_id" value="{{ book.id }}" >
+        <div class="p-3">
+          <h3> Write A Review</h3>
+          <label for="star">Rate Book:</label>
+          <select name="stars" class="form-select" id="star">
+            <option value="5">"5 Stars" - New Favorite</option>
+            <option value="4">"4 Stars" - Enjoyed It</option>
+            <option value="3">"3 Stars" Mixed Feelings</option>
+            <option value="2">"2 Stars" Just Did Not Like it</option>
+            <option value="1">"1 Star" Do Not Pick This Up </option>
+          </select>
+          <br>
+          <textarea class="form-control" placeholder="Write A Review" name="review" rows="5"></textarea>
+
+        </div>
+        <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-secondary mr-2"> Post </button>
+        </div>
+          </form>
+            {% else %}
+            <div class="text-center my-2">
+            Login In to write a review.
+            <a class="btn btn-sm btn-info mx-2" href="{% url 'login' %}">Login</a>
+            </div>
+                {% endif %}
+
+           <!-- end review form-->
+        </div>
+
+        {% endfor %}
+      </div>
+
+{% endif %}
+<!--  Book list End -->
+
+
+
+
+    </div>
+
+    {% endblock content%}
