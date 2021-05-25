@@ -89,7 +89,7 @@ If Django is not installed or you need latested version please follow this link:
    $ pip install virtualenv 
    ``` 
    
-4. Set up virtual environment by changing Directories into Book_Review_samaritans_purse/django_samaritans_purse 
+4. Set up virtual environment by changing Directories into Book_Review_samaritans_purse/django_samaritans_purse and run virtualenv venv
  ```sh
    $ cd Book_Review_samaritans_purse/django_samaritans_purse && virtualenv venv
    ``` 
