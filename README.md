@@ -80,25 +80,34 @@ Steps
    ```
 If Django is not installed or you need latested version please follow this link: ["How to install Django"](https://docs.djangoproject.com/en/3.2/topics/install/)
 
-
 2. Clone the repository or Pull Repository 
 ```sh
    $ git clone https://github.com/Jordan-Ortiz/Book_Review_samaritans_purse
-   ```
-3. Make sure to install requirements from above
+   ``` 
+3. Install a virtual environment 
+ ```sh
+   $ pip install virtualenv 
+   ``` 
+   
+4. Set up virtual environment by changing Directories into Book_Review_samaritans_purse/django_samaritans_purse 
+ ```sh
+   $ cd Book_Review_samaritans_purse/django_samaritans_purse && virtualenv venv
+   ``` 
+
+5. Make sure to install requirements from above
  ```sh
    pip install requests
    ```
  ```sh
    pip install django-crispy-forms
    ```
-4. In Terminal change directories to Book_Review_samaritans_purse/django_samaritans_purse/Library/ and runserver on 0:8000 
+6. In Terminal change directories to Book_Review_samaritans_purse/django_samaritans_purse/Library/ and runserver on 0:8000 
  ```sh
    cd Book_Review_samaritans_purse/django_samaritans_purse/Library/ && python manage.py runserver 0:8000
    ```
-5. Have Fun With The Book Review Application!
+7. Have Fun With The Book Review Application!
 
-6. When Done ^C (control + C) in Terminal to end session
+8. When Done ^C (control + C) in Terminal to end session
 
 
 
